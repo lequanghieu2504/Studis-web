@@ -64,8 +64,8 @@ body {
 }
 
 .logo {
-    width: 150px;
-    height: 80px;
+    width: 135px;
+    height: 87px;
 }
 
 #header {
@@ -93,7 +93,7 @@ body {
 #navbar li {
     padding: 0 20px;
     list-style: none;
-    position: relative;
+    position: relative;font-size: 10px;
 }
 
 #navbar button {
@@ -131,9 +131,9 @@ body {
 #navbar li a:hover::after {
     content: "";
     border-radius: 7px;
-    width: 35%;
+    width: 33%;
     background: #3fabea;
-    height: 2.3px;
+    height: 2.5px;
     position: absolute;
     bottom: -4px;
     left: 20px;
@@ -161,24 +161,25 @@ body {
     display: flex;
     align-items: center;
     width: 600px; /* Độ dài của ô tìm kiếm */
-    height: 50px; /* Chiều cao của ô tìm kiếm */
+    height: 43px; /* Chiều cao của ô tìm kiếm */
     border: 2px solid #ccc;
     border-radius: 8px;
     background-color: #fff;
     padding: 5px 10px;
     box-sizing: border-box;
+    margin-top: 15px;
 }
 
 /* Icon kính lúp */
 .search-container .fa-magnifying-glass {
-    font-size: 20px; /* Kích thước icon */
+    font-size: 18px; /* Kích thước icon */
     color: #555;
     margin-right: 10px;
 }
 
 /* Đường kẻ thẳng */
 .search-container .divider {
-    height: 35px; /* Chiều cao của đường kẻ */
+    height: 32px; /* Chiều cao của đường kẻ */
     width: 1px;
     background-color: #ccc;
     margin-right: 10px;
@@ -214,37 +215,41 @@ body {
 }
 
 #banner h1 {
-    transform: translateY(-160px);
+    transform: translateY(-80px);
     font-size: 43px;
     margin: 0 0 15px;
 }
 
 #banner h1:nth-child(1) {
+    transform: translateY(20px);
     color: #2e9fe0;
     font-weight: 700;
+    font-size: 37px;
 }
 
 #banner h1:nth-child(2) {
+    transform: translateY(15px);
     color: #000;
     font-weight: 600;
-    font-size: 30px;
+    font-size: 27px;
 }
 
 #banner h1:nth-child(3) {
+    transform: translateY(8px);
     color: #007bff;
-    font-size: 50px;
+    font-size: 39px;
 }
 
 #banner h4 {
-    transform: translateY(-70px);
-    font-size: 20px;
-    margin: 0 0 40px;
+    transform: translateY(10px);
+    font-size: 17px;
+    margin: 0 0 38px;
     color: #000;
 }
 
 #banner button {
-    height: 50px;
-    width: 260px;
+    height: 45px;
+    width: 240px;
     padding: 10px 20px;
     margin-bottom: 150px;
     font-size: 18px;
@@ -256,11 +261,12 @@ body {
     border-radius: 6px;
     cursor: pointer;
     z-index: 2;
+    transition: transform 0.2s ease, background-color 0.2s ease;
 }
 #banner button:hover {
-    background-color: rgb(10, 62, 216);
-    /* border: #686565; */
-    padding: 12px;
+    background-color: #0056b3;
+    transform: translateY(-3px); /* Nổi lên khi hover */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Thêm bóng để tạo hiệu ứng nổi */
 }
 
 #banner h1,
