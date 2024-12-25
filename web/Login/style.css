@@ -57,12 +57,19 @@ body {
     display: flex; /* Hiển thị các nút theo hàng ngang */
     flex-direction: row; /* Xếp theo hàng ngang */
     justify-content: center; /* Căn giữa các nút */
-    gap: 10px; /* Khoảng cách giữa các nút */
+    /*Khoảng cách giữa các nút*/
+    gap: 12px;   
+    width: auto;
+}
+
+.social-buttons a {
+    text-decoration: none;
+    color: white;
 }
 
 /* Nút logo */
 .social-button {
-    /* display: flex; */
+    display: flex; 
     justify-content: center;
     align-items: center;
     width: 40px;
@@ -72,12 +79,13 @@ body {
     color: white;
     border: none;
     cursor: pointer;
-    transition: transform 0.2s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 /* Hiệu ứng khi hover */
 .social-button:hover {
-    transform: scale(1.2);
+    transform: scale(1.1);
+    /*box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);*/
 }
 
 
