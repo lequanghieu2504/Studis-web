@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package servlet;
 
 import controller.AuthController;
@@ -12,57 +7,28 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Result;
-import utils.validatorUtils.DataFormatValidator;
 
 /**
- *
- * @author ho huy
+ * This servlet is responsible for handling registration requests.
+ * It listens for POST requests at the "/register" URL and delegates the
+ * registration logic to the AuthController.
  */
-@WebServlet("/register")
+@WebServlet("/register")  // This annotation maps the servlet to the "/register" URL pattern
 public class RegisterServlet extends HttpServlet {
 
-    private AuthController ac = new AuthController();
+    private AuthController ac = new AuthController();  // Creating an instance of AuthController to handle registration logic
 
+    /**
+     * Handles POST requests for registering a user.
+     * The registration logic is delegated to the AuthController's register method.
+     * 
+     * @param request The HttpServletRequest object containing the request data.
+     * @param response The HttpServletResponse object to send the response to the client.
+     * @throws ServletException If an error occurs during the handling of the request.
+     * @throws IOException If an error occurs while sending the response.
+     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String name = request.getParameter("name");
-        String email = request.getParameter("email");
-        String password = request.getParameter("password");
-        String confirmPassword = request.getParameter("confirmPassword");
-
-        if (!DataFormatValidator.isNameValid(name)) {
-            request.setAttribute("errorMessage", "Invalid name format.");
-            request.getRequestDispatcher("register.jsp").forward(request, response);
-            return;
-        }
-
-        if (!DataFormatValidator.isEmailValid(email)) {
-            request.setAttribute("errorMessage", "Invalid email format.");
-            request.getRequestDispatcher("register.jsp").forward(request, response);
-            return;
-        }
-
-        if (!DataFormatValidator.isPasswordValid(password)) {
-            request.setAttribute("errorMessage", "Invalid password format.");
-            request.getRequestDispatcher("register.jsp").forward(request, response);
-            return;
-        }
-
-        if (!password.equals(confirmPassword)) {
-            request.setAttribute("errorMessage", "Passwords do not match.");
-            request.getRequestDispatcher("register.jsp").forward(request, response);
-            return;
-        }
-
-        Result result = ac.handleRegister(name, email, password, confirmPassword);
-
-        if (result.getStatus() == HttpServletResponse.SC_CREATED) {
-            request.setAttribute("successMessage", "Registration successful! You can now log in.");
-            request.getRequestDispatcher("register.jsp").forward(request, response);
-        } else {
-            request.setAttribute("errorMessage", "Registration failed: " + result.getMessage());
-            request.getRequestDispatcher("register.jsp").forward(request, response);
-        }
+        ac.register(request, response);  // Delegating the registration handling to AuthController
     }
 }

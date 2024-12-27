@@ -5,10 +5,7 @@
         <h1>Register</h1>
         
         <% 
-            String message = (String) request.getAttribute("successMessage");
-            if(message == null){
-                message = (String) request.getAttribute("errorMessage");
-            }
+            String message = (String) request.getAttribute("message");
             if (message != null) {
         %>
             <div id="success-message" style="background-color: #FFFFFF; color: black; padding: 15px; text-align: center; margin-bottom: 20px;">
